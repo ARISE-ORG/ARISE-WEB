@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  --primary: #00faff;
+  --secondary: #001a40;
+  --accent: #ff0080;
+  --dark: #0f172a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: var(--dark);
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Neon Glow Effects */
+.neon-glow {
+  text-shadow:
+    0 0 10px rgba(0, 250, 255, 0.8),
+    0 0 20px rgba(0, 250, 255, 0.6),
+    0 0 30px rgba(0, 250, 255, 0.4);
+}
+
+.neon-box-glow {
+  box-shadow:
+    0 0 20px rgba(0, 250, 255, 0.5),
+    inset 0 0 20px rgba(0, 250, 255, 0.1);
+  border: 1px solid rgba(0, 250, 255, 0.3);
+}
+
+/* Utilities */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00faff, #ff0080);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 26, 64, 0.4);
+}
+
+/* Smooth Transitions */
+button,
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00d9e8;
+}
