@@ -81,7 +81,7 @@ export const AppShowcase = () => {
   };
 
   return (
-    <section className="relative py-24 md:py-12 overflow-hidden">
+    <section className="relative py-24 md:py-4 overflow-hidden">
       <Container>
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
