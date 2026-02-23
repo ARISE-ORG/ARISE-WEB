@@ -1,7 +1,8 @@
 // Auth service - placeholder for integration with backend
 import { apiFetch } from "./api";
 import { AUTH_ENDPOINTS } from "@/utils/constants";
-import type { User, AuthToken } from "@/types";
+// import type User from "@/types/User";
+import type { AuthToken } from "@/types/auth";
 
 export const authService = {
   login: async (email: string, password: string): Promise<AuthToken> => {

@@ -34,16 +34,16 @@ export const FeatureTrio = () => {
           className="text-5xl md:text-6xl font-black text-center mb-4 neon-glow"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          // transition={{ duration: 0.8 }}
         >
-          THE TRINITY
+          THE SYSTEM CODE
         </motion.h2>
 
         <motion.p
           className="text-center text-slate-400 mb-16 max-w-2xl mx-auto text-lg"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          // transition={{ duration: 0.8, delay: 0.1 }}
         >
           Three reasons to download ARISE today
         </motion.p>
@@ -55,7 +55,7 @@ export const FeatureTrio = () => {
               className="neon-box-glow p-8 rounded-xl backdrop-blur-custom"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              // transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{
                 y: -10,
                 boxShadow: "0 0 40px rgba(0, 250, 255, 0.6)",
@@ -79,10 +79,8 @@ export const FeatureTrio = () => {
           className="mt-20 text-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <p className="text-slate-500 mb-6">Feature screenshots coming soon</p>
-        </motion.div>
+          // transition={{ duration: 0.8, delay: 0.6 }}
+        ></motion.div>
       </div>
     </section>
   );

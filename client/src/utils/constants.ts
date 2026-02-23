@@ -26,6 +26,10 @@ export const AUTH_ENDPOINTS = {
   LOGOUT: "/auth/logout",
 };
 
+export const COLLABORATION_ENDPOINTS = {
+  SUBMIT: "/collaboration/submit",
+};
+
 export const BREAKPOINTS = {
   mobile: 640,
   tablet: 768,

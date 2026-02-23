@@ -7,6 +7,7 @@ interface MagneticButtonProps {
   onClick?: () => void;
   className?: string;
   variant?: "primary" | "secondary";
+  disabled?: boolean;
 }
 
 export const MagneticButton: React.FC<MagneticButtonProps> = ({
@@ -14,6 +15,7 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
   onClick,
   className = "",
   variant = "primary",
+  disabled = false,
 }) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const position = useMouse();
@@ -63,8 +65,12 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
     };
   }, [position, isHovering]);
 
-  const handleMouseEnter = () => setIsHovering(true);
+  const handleMouseEnter = () => {
+    if (disabled) return;
+    setIsHovering(true);
+  };
   const handleMouseLeave = () => {
+    if (disabled) return;
     setIsHovering(false);
     gsap.to(buttonRef.current, {
       x: 0,
@@ -82,13 +88,18 @@ export const MagneticButton: React.FC<MagneticButtonProps> = ({
       ? "bg-neon-cyan text-black hover:shadow-neon-cyan"
       : "border-2 border-neon-cyan text-neon-cyan hover:shadow-neon-cyan";
 
+  const disabledStyles = disabled
+    ? "opacity-60 cursor-not-allowed pointer-events-none"
+    : "";
+
   return (
     <button
       ref={buttonRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={onClick}
-      className={`${baseStyles} ${variantStyles} ${className}`}
+      onClick={disabled ? undefined : onClick}
+      disabled={disabled}
+      className={`${baseStyles} ${variantStyles} ${disabledStyles} ${className}`}
     >
       {children}
     </button>

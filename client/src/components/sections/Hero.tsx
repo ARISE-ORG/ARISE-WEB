@@ -35,24 +35,38 @@ export const Hero = () => {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row gap-6 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-6 justify-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
+          <MagneticButton variant="primary" disabled>
+            Google Play (Stay Tuned)
+          </MagneticButton>
+          <MagneticButton variant="secondary" disabled>
+            App Store (Stay Tuned)
+          </MagneticButton>
+        </motion.div>
+
+        <motion.div
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.35 }}
+        >
           <MagneticButton
             variant="primary"
             onClick={() =>
-              window.open("https://play.google.com/store", "_blank")
+              window.open(
+                "https://expo.dev/artifacts/eas/6UF5CPo4dAMRAArYMFHZQQ.apk",
+                "_blank",
+              )
             }
           >
-            Google Play
+            Android Beta
           </MagneticButton>
-          <MagneticButton
-            variant="secondary"
-            onClick={() => window.open("https://apps.apple.com", "_blank")}
-          >
-            App Store
+          <MagneticButton variant="secondary" disabled>
+            iOS Beta (Stay Tuned)
           </MagneticButton>
         </motion.div>
 

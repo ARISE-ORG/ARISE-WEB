@@ -19,17 +19,26 @@ export const Footer = () => {
             <h4 className="font-bold text-white mb-4">Product</h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Features
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Download
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   FAQ
                 </a>
               </li>
@@ -41,17 +50,26 @@ export const Footer = () => {
             <h4 className="font-bold text-white mb-4">Legal</h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Privacy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Terms
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Contact
                 </a>
               </li>
@@ -63,17 +81,26 @@ export const Footer = () => {
             <h4 className="font-bold text-white mb-4">Follow</h4>
             <ul className="space-y-2 text-slate-400">
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Twitter
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-neon-cyan transition">
+                <a
+                  href={true ? undefined : "#"}
+                  className="hover:text-neon-cyan transition"
+                >
                   Discord
                 </a>
               </li>
@@ -81,10 +108,10 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-neon-cyan/10 pt-8 text-center text-slate-500">
-          <p>
-            © {currentYear} ARISE. All rights reserved. | Made with 💪 for gym
-            bros
+        <div className="border-t border-neon-cyan/10 pt-8 text-center ">
+          <p className="text-center">
+            © {currentYear} ARISE. All rights reserved. | Made with{" "}
+            <span className="neon-glow">OBSESSION</span> for gym bros
           </p>
         </div>
       </div>

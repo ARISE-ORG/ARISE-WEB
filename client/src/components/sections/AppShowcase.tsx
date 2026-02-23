@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { Container } from "@/components/layout";
+import React, { useState, useEffect, useRef } from "react";
+import { Container } from "../layout/Container";
 import { motion } from "framer-motion";
 
 import { MagneticButton } from "@/components/magic/MagneticButton";
 
 export const AppShowcase = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef<number | null>(null);
 
   const screenshots = [
     {
@@ -45,23 +46,34 @@ export const AppShowcase = () => {
     },
   ];
 
-  // Auto-rotate screenshots every 3 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
+  function startAuto() {
+    if (intervalRef.current) window.clearInterval(intervalRef.current);
+
+    intervalRef.current = window.setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % screenshots.length);
     }, 3000);
+  }
 
-    return () => clearInterval(interval);
-  }, [screenshots.length]);
+  // Auto-rotate screenshots every 3 seconds
+  useEffect(() => {
+    startAuto();
+
+    return () => {
+      if (intervalRef.current) window.clearInterval(intervalRef.current);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screenshots.length]); // restart if length changes
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % screenshots.length);
+    startAuto(); // reset timer
   };
 
   const prevSlide = () => {
     setCurrentIndex(
       (prev) => (prev - 1 + screenshots.length) % screenshots.length,
     );
+    startAuto(); // reset timer
   };
 
   const goToSlide = (index: number) => {
@@ -69,21 +81,21 @@ export const AppShowcase = () => {
   };
 
   return (
-    <section className="relative py-24 md:py-4 overflow-hidden">
+    <section className="relative py-24 md:py-12 overflow-hidden">
       <Container>
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
           {/* Left Side - Text Content */}
           <div className="text-center lg:text-left space-y-8">
             <div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+              <h2 className="text-6xl md:text-6xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Ready to{" "}
-                <a
-                  href="https://www.google.com/"
+                <span
+                  // href="https://www.google.com/"
                   className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500"
                 >
                   ARISE{" "}
-                </a>
+                </span>
                 ?
               </h2>
               <p className="text-lg md:text-xl text-slate-400 mb-8">
@@ -119,26 +131,50 @@ export const AppShowcase = () => {
             </div>
 
             {/* CTA Button */}
-            <motion.div
+            {/* <motion.div
               className="flex flex-col sm:flex-row gap-6 justify-left mb-12"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
+              // transition={{ duration: 0.8, delay: 0.3 }}
             >
               <MagneticButton
                 variant="primary"
                 onClick={() =>
                   window.open("https://play.google.com/store", "_blank")
                 }
+                disabled
               >
-                Google Play
+                Google Play (Stay Tuned)
               </MagneticButton>
               <MagneticButton
                 variant="secondary"
                 onClick={() => window.open("https://apps.apple.com", "_blank")}
+                disabled
               >
-                App Store
+                App Store (Stay Tuned)
               </MagneticButton>
+            </motion.div> */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-left mt-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              // transition={{ duration: 0.8, delay: 0.25 }}
+            >
+              <MagneticButton
+                variant="primary"
+                className="text-lg"
+                onClick={() =>
+                  window.open(
+                    "https://expo.dev/artifacts/eas/6UF5CPo4dAMRAArYMFHZQQ.apk",
+                    "_blank",
+                  )
+                }
+              >
+                Android Beta
+              </MagneticButton>
+              {/* <MagneticButton variant="secondary" className="text-lg" disabled>
+                iOS Beta (Stay Tuned)
+              </MagneticButton> */}
             </motion.div>
           </div>
 
